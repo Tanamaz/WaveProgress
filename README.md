@@ -6,7 +6,7 @@
 
 A dynamic wave progress view for Android with gradient color support. Perfect for download progress, liquid level visualization, and other fluid animations.  
 
-![Demo GIF](https://github.com/Tanamaz/BTAView/blob/959b8dc30aa6ac87cdefd3254a67620da1e17ac6/gif/demo.gif)
+![Demo GIF](https://github.com/Tanamaz/WaveProgress/blob/378710ac4d8415d50f6951b508c1451be436334c/gif/demo.gif)
 
 ## Features  
 - 🌊 Smooth wave animation (60 FPS)  
