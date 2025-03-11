@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android)
+    id("maven-publish") // 添加maven发布插件
 }
 
 android {
@@ -31,7 +32,19 @@ android {
         jvmTarget = "11"
     }
 }
-
+// 关键：添加发布配置
+afterEvaluate {
+    publishing {
+        publications {
+            create<MavenPublication>("release") {
+                from(components["release"])
+                groupId = "com.github.Tanamaz" // 改为你的GitHub用户名
+                artifactId = "WaveProgress" // 项目名称
+                version = "1.0.0" // 版本号
+            }
+        }
+    }
+}
 dependencies {
 
     implementation(libs.androidx.core.ktx)
