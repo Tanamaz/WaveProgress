@@ -20,33 +20,33 @@ To get a Git project into your build:
 **Step 1.** Add the JitPack repository to your build file:
 
 ```css
-	dependencyResolutionManagement {
-		repositories {
-			mavenCentral()
-			maven { url = uri("https://jitpack.io") }
-		}
+dependencyResolutionManagement {
+	repositories {
+		mavenCentral()
+		maven { url = uri("https://jitpack.io") }
 	}
+}
 ```
 
 **Step 2.** Add to your module's `build.gradle`:  
 
 ```css
-	dependencies {
-	        implementation("com.github.Tanamaz:WaveProgress:Tag")
-	}
+dependencies {
+	implementation("com.github.Tanamaz:WaveProgress:Tag")
+}
 ```
 
 ## Basic Usage  
 
 ### XML Layout  
 ```xml  
-<com.navobytes.ui.WaveProgress  
-    android:id="@+id/waveProgress"  
-    android:layout_width="200dp"  
-    android:layout_height="200dp"  
-    app:waveSpeed="0.8"  
-    app:amplitude="20dp"  
-    app:initialProgress="0.3"/>  
+    <com.navobytes.ui.WaveProgress
+        android:id="@+id/waveProgress"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:amplitude="24dp"
+        app:waveSpeed="0.1"
+        android:alpha="0.8"/>
 ```
 
 ### Programmatic Configuration  
