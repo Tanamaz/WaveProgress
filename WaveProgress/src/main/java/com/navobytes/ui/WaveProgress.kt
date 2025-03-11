@@ -4,6 +4,7 @@ import android.content.Context
 import android.graphics.*
 import android.util.AttributeSet
 import android.view.View
+import androidx.core.content.ContextCompat
 import androidx.core.content.withStyledAttributes
 import kotlin.math.PI
 import kotlin.math.sin
@@ -23,12 +24,18 @@ class WaveProgress @JvmOverloads constructor(
     private var progress = 0f        // 进度 0-1
     private var phase = 0f           // 相位偏移
 
-    // 固定渐变颜色
-    private val colors = intArrayOf(
-        Color.parseColor("#FF2196F3"), // 右：蓝色
-        Color.parseColor("#FF9C27B0"), // 中：紫色
-        Color.parseColor("#FFFF9800")  // 左：橙色
+    // 新增颜色数组属性
+    private var colors = intArrayOf(
+        Color.BLUE, Color.MAGENTA, Color.YELLOW
     )
+
+    // 或使用可变参数版本
+    fun setWaveColors(vararg colors: Int) {
+        require(colors.size == 3) { "必须提供3个颜色值" }
+        this.colors = colors
+        updateGradient()
+        invalidate()
+    }
     private var gradient: LinearGradient? = null
     private var viewWidth = 0f
     private var viewHeight = 0f
@@ -55,12 +62,12 @@ class WaveProgress @JvmOverloads constructor(
 
     private fun updateGradient() {
         gradient = LinearGradient(
-            viewWidth.toFloat(),  // 起点X：右侧边界
-            viewHeight * (1 - progress),  // 起点Y：保持原垂直位置
-            0f,                   // 终点X：左侧边界
-            viewHeight * (1 - progress),  // 终点Y：保持原垂直位置
+            0f,                          // 起点X：左上角
+            viewHeight * (1 - progress), // 起点Y：基于进度的高度
+            viewWidth,                   // 终点X：右下角
+            viewHeight,                  // 终点Y：底部
             colors,
-            floatArrayOf(0f, 0.5f, 1f),
+            floatArrayOf(0f, 0.5f, 1f), // 对应颜色分布位置
             Shader.TileMode.CLAMP
         ).also {
             wavePaint.shader = it

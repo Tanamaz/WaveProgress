@@ -7,4 +7,8 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+
+    <color name="wave_blue">#FF2196F3</color>
+    <color name="wave_purple">#FF9C27B0</color>
+    <color name="wave_orange">#FFFF9800</color>
 </resources>

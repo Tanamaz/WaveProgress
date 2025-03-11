@@ -1,20 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="default_wave_colors">
-        <item>#6684C1FF</item>
-        <item>#664AB1F5</item>
-        <item>#661A73D8</item>
-    </array>
 
-    <array name="sunset_colors">
-        <item>#66FF6B6B</item>
-        <item>#66FF9F43</item>
-        <item>#66FFD93D</item>
-    </array>
-
-    <array name="forest_colors">
-        <item>#6642B883</item>
-        <item>#6657C991</item>
-        <item>#6687DFB2</item>
-    </array>
 </resources>
