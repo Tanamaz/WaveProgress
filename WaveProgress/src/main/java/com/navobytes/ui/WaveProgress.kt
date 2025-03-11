@@ -20,7 +20,7 @@ class WaveProgress @JvmOverloads constructor(
 
     // 配置参数
     private var amplitude = 20f      // 波峰高度（建议20-40dp）
-    private var waveSpeed = 0.8f     // 流动速度（0.5-1.5）
+    private var waveSpeed = 0.1f     // 流动速度（0.1-0.5）
     private var progress = 0f        // 进度 0-1
     private var phase = 0f           // 相位偏移
 
@@ -43,7 +43,7 @@ class WaveProgress @JvmOverloads constructor(
     init {
         context.withStyledAttributes(attrs, R.styleable.WaveProgress) {
             amplitude = getDimension(R.styleable.WaveProgress_amplitude, 20f)
-            waveSpeed = getFloat(R.styleable.WaveProgress_waveSpeed, 0.8f)
+            waveSpeed = getFloat(R.styleable.WaveProgress_waveSpeed, 0.1f)
         }
         setupPaint()
         startWaveAnimation()
